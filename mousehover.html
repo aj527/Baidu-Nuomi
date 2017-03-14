@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.wrap{
+			position: relative;
+			width: 800px;
+			height: 400px;
+			margin: 0 auto;
+			margin-top: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+		.content:before,.content:after{
+			display: block;
+			width: 0;
+			height: 0;
+			border-top: 3px solid #fff;
+			content: '';
+			transition: width 1s;			
+		}		
+		.content{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			width: 400px;
+			height: 300px;
+			z-index: 1;
+			opacity: 0;
+			transition: all 1s;
+		}
+		.text{
+			width: 400px;
+			height: 294px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			
+		}
+		.text:before,.text:after{
+			display: block;
+			width: 0;
+			height: 0;
+			border-left: 3px solid #fff;
+			content: '';
+			transition: height 1s;
+
+			
+		}
+		.tilte{
+			width: 400px;
+			height: 300px;
+			display: flex!important;;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.title h1{
+			width: 400px;
+			text-align: center;
+			background-image: linear-gradient(to left,blue,yellow 25%,red 50%,yellow 75%,blue 100%);
+			-webkit-background-clip: text;
+			color: transparent;
+			background-size: 200% 100%;
+			animation: tex 2s infinite linear;
+		}
+		@keyframes tex {
+	    	0%  {
+	    	    background-position: 0 0;
+	    	}
+	    	100% {
+	    	    background-position: -100% 0;
+	    	}
+		}
+		.title a{
+			display: block;
+			text-align: center;
+			margin-top: 10px;
+			color: blue;
+			font-weight: bold;
+		}
+		.content:hover{
+			opacity: 0.6;
+			background: rgba(255, 255, 255, 0.192157);
+
+		}
+		.content:hover:before,.content:hover:after{
+			width: 400px;
+		}
+		.content:hover .text:before,.content:hover .text:after{
+			height: 300px;
+		}
+		.blur {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 800px;
+			height: 500px; 
+			transition: all 1s;
+		}
+		.content:hover ~.blur{
+			 filter: url(blur.svg#blur);   
+		    -webkit-filter: blur(5px); 
+		       -moz-filter: blur(5px);
+		        -ms-filter: blur(5px);    
+		            filter: blur(5px);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">		
+		<div class="content">
+			<div class="text">
+				<div class="title">
+					<h1>welcome to baidu</h1>
+					<a href="">点击进入</a>
+				</div>
+			</div>
+		</div>
+		<img src="atz.jpg" class="blur">
+	</div>
+</body>
+</html>
